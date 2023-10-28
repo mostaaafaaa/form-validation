@@ -23,6 +23,23 @@ setsuccessfor(username);
 
     if(emailvalue === '') {
         Seterrorfor(email, 'email cannot be blank');
+    } else if(!isEmail(emailvalue)) {
+        Seterrorfor(email, 'email is not valid');
+    } else {
+        setsuccessfor(email);
+    }
+
+    if(passwordvalue === ''){
+        Seterrorfor(password, 'password cannot be blank');
+    } else {
+        setsuccessfor(password);
+    }
+
+    if(password2value === ''){
+        Seterrorfor(password2, 'password cannot be blank');
+    } else {
+        setsuccessfor(password2);
+    }
 
 }
 
@@ -37,4 +54,8 @@ function Seterrorfor(input, message) {
 function setsuccessfor(input){
     const formcontrol = input.parentElement;
     formcontrol.className = 'form-control success';
-} }
+}
+
+function isEmail(email){
+    return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+}
