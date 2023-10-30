@@ -37,6 +37,8 @@ setsuccessfor(username);
 
     if(password2value === ''){
         Seterrorfor(password2, 'password cannot be blank');
+    } else if(passwordvalue !== password2value) {
+        Seterrorfor(password2, 'passwords does not match');
     } else {
         setsuccessfor(password2);
     }
